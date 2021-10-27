@@ -107,7 +107,7 @@ function joeS()
             if fat <= 70 and Stam >= 1 then
             local clk = game.Workspace.Game.WorkOut.Squats.BartSimp.ClickDetector
             fireclickdetector(clk)
-            wait(35)
+            wait(timeS)
             else
                 print("false")
                 break
@@ -242,12 +242,7 @@ A:Toggle("ViewAtmToggle",function(bool)
              player.PlayerGui.MainGui.ATM.Visible = bool
          end
     end)
-     A:Label("Balls",{
-         TextSize = 25; -- Self Explaining
-       TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
-        BgColor = Color3.fromRGB(69,69,69); -- Self Explaining
-        
-    }) 
+
 
     B:DestroyGui()
 
@@ -260,6 +255,10 @@ A:Toggle("ViewAtmToggle",function(bool)
         UnName()
         
     end)
+
+     C:Box("WaitTime","number",function(values) -- "number" or "string"
+        times = values
+     end)
 
     B:Toggle("ToggleStrength",function(bool)
          getgenv().Ball = bool
@@ -278,6 +277,10 @@ A:Toggle("ViewAtmToggle",function(bool)
         UnNameS()
         
     end)
+
+     C:Box("WaitTime","number",function(valueS) -- "number" or "string"
+        timeS = valueS
+     end)
 
     C:Toggle("ToggleStamina",function(bool)
          getgenv().BallS = bool
