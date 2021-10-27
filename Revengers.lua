@@ -397,7 +397,7 @@ A:Toggle("ViewAtmToggle",function(bool)
     end)
 
 
-
+print('Loaded')
 
 
     -- b:Label("Pretty Useless NGL",{
