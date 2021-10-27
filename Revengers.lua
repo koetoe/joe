@@ -156,7 +156,7 @@ function joeD()
             if fat <= 70 and Stam >= 1 then
             local clk = game.Workspace.Game.WorkOut.SitUp.BartSimp.ClickDetector
             fireclickdetector(clk)
-            wait(35)
+            wait(38)
             else
                 print("false")
                 break
