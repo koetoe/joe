@@ -242,7 +242,12 @@ A:Toggle("ViewAtmToggle",function(bool)
              player.PlayerGui.MainGui.ATM.Visible = bool
          end
     end)
-
+     A:Label("Balls",{
+         TextSize = 25; -- Self Explaining
+       TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
+        BgColor = Color3.fromRGB(69,69,69); -- Self Explaining
+        
+    }) 
 
     B:DestroyGui()
 
