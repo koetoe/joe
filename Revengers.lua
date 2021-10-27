@@ -6,6 +6,11 @@ local name = player.Name
 local character = player.Character
 local fat 
 local Stam
+local times = 0
+local timeS = 0
+local timeD = 0
+
+
 function placeBalls()
     game.Workspace.Game.WorkOut.PushUp.Part.Name = ('BartSimp')
     for i,v in pairs(game.Workspace.Game.WorkOut.PushUp:GetDescendants()) do -- grabs everything from workspace
@@ -49,7 +54,7 @@ function joe()
             if fat <= 70 and Stam >= 1 then
             local clk = game.Workspace.Game.WorkOut.PushUp.BartSimp.ClickDetector
             fireclickdetector(clk)
-            wait(35)
+            wait(times)
             else
                 print('Stop')
                 break
@@ -288,6 +293,11 @@ A:Toggle("ViewAtmToggle",function(bool)
         UnNameD()
         
     end)
+
+     D:Box("WaitTime","number",function(valueD) -- "number" or "string"
+        timeD = valueD
+     end)
+
 
     D:Toggle("ToggleDefense",function(bool)
          getgenv().BallD = bool
