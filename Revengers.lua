@@ -205,7 +205,7 @@ function UnNameSS()
   for i,v in pairs(game.Workspace.Game.WorkOut.Treadmill:GetDescendants()) do
         if v.Name == ('xr3x') then
             v:Destroy()
-    game.Workspace.Game.WorkOut.Treadmill.BartSimp.Name = ('Part')
+    game.Workspace.Game.WorkOut.Treadmill.BartSimp.Name = ('Platform')
     end
 end
 end
