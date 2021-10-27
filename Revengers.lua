@@ -1,5 +1,7 @@
 getgenv().Ball = false
 getgenv().BallS = false
+getgenv().BallD = false
+getgenv().BallSS = false
 getgenv().Atm = false
 local player = game.Players.LocalPlayer
 local name = player.Name
@@ -9,6 +11,7 @@ local Stam
 local times = 0
 local timeS = 0
 local timeD = 0
+local timeSS = 0
 
 
 function placeBalls()
@@ -174,6 +177,60 @@ end
 
 
 
+function placeBallsSS()
+    game.Workspace.Game.WorkOut.Treadmill.Platform.Name = ('BartSimp')
+    for i,v in pairs(game.Workspace.Game.WorkOut.Treadmill:GetDescendants()) do -- grabs everything from workspace
+        if v.Name == ('BartSimp') then
+            local BillboardGui = Instance.new('BillboardGui') -- Makes Billboardgui
+            local TextLabel = Instance.new('TextLabel') -- makes text label
+           
+            BillboardGui.Parent = v -- what the billboardgui goes into
+            BillboardGui.AlwaysOnTop = true -- if its on top or not
+          BillboardGui.Size = UDim2.new(0, 50, 0, 50) -- size of it
+          BillboardGui.StudsOffset = Vector3.new(0,2,0)
+          BillboardGui.Name = ("xr3x")
+   
+           TextLabel.Parent = BillboardGui -- putting textlabel into billboardgui
+           TextLabel.BackgroundColor3 = Color3.new(0.972549, 0, 0) -- color
+           TextLabel.BackgroundTransparency = 1 -- transparency
+           TextLabel.Size = UDim2.new(1, 0, 1, 0) -- size
+            TextLabel.Text = ('Stand Here!!!!') -- what the label says
+            TextLabel.TextColor3 = Color3.new(0.517647, 0, 1) -- color
+            TextLabel.TextScaled = true -- if the text is scaled or not
+        end
+        end
+end
+
+function UnNameSS()
+  for i,v in pairs(game.Workspace.Game.WorkOut.Treadmill:GetDescendants()) do
+        if v.Name == ('xr3x') then
+            v:Destroy()
+    game.Workspace.Game.WorkOut.Treadmill.BartSimp.Name = ('Part')
+    end
+end
+end
+
+function joeSS()
+    spawn(function()
+        while BallSS == true do
+            wait()
+            print("Start")
+            fat = player.Stats.Fatigue.Value
+            Stam = game.Players[name].Stats.Stamina.Value
+            if fat <= 70 and Stam >= 1 then
+            local clk = game.Workspace.Game.WorkOut.Treadmill.BartSimp.ClickDetector
+            fireclickdetector(clk)
+            wait(timeSS)
+            else
+                print("false")
+                break
+                
+        end
+end
+end)
+end
+
+
 
 
 function Fries()
@@ -314,6 +371,34 @@ A:Toggle("ViewAtmToggle",function(bool)
          end
     end)
     
+
+
+    C:DestroyGui()
+
+    C:Button("WhereToStand",function()
+        placeBallsSS()
+    end)
+
+    C:Button("Refresh/UnName",function()
+        UnNameSS()
+        
+    end)
+
+     C:Box("WaitTime","number",function(valueSS) -- "number" or "string"
+        timeSS = valueSS
+     end)
+
+
+    C:Toggle("ToggleSpeed",function(bool)
+         getgenv().BallSS = bool
+         if bool then
+             joeSS()
+         end
+    end)
+
+
+
+
 
     -- b:Label("Pretty Useless NGL",{
     --     TextSize = 25; -- Self Explaining
