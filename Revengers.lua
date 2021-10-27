@@ -373,23 +373,23 @@ A:Toggle("ViewAtmToggle",function(bool)
     
 
 
-    C:DestroyGui()
+    E:DestroyGui()
 
-    C:Button("WhereToStand",function()
+    E:Button("WhereToStand",function()
         placeBallsSS()
     end)
 
-    C:Button("Refresh/UnName",function()
+    E:Button("Refresh/UnName",function()
         UnNameSS()
         
     end)
 
-     C:Box("WaitTime","number",function(valueSS) -- "number" or "string"
+     E:Box("WaitTime","number",function(valueSS) -- "number" or "string"
         timeSS = valueSS
      end)
 
 
-    C:Toggle("ToggleSpeed",function(bool)
+    E:Toggle("ToggleSpeed",function(bool)
          getgenv().BallSS = bool
          if bool then
              joeSS()
