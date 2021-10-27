@@ -256,7 +256,7 @@ A:Toggle("ViewAtmToggle",function(bool)
         
     end)
 
-     C:Box("WaitTime","number",function(values) -- "number" or "string"
+     B:Box("WaitTime","number",function(values) -- "number" or "string"
         times = values
      end)
 
