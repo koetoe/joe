@@ -46,7 +46,7 @@ function joe()
             print('Start')
             fat = player.Stats.Fatigue.Value
             Stam = game.Players[name].Stats.Stamina.Value
-            if fat <= 80 and Stam >= 1 then
+            if fat <= 70 and Stam >= 1 then
             local clk = game.Workspace.Game.WorkOut.PushUp.BartSimp.ClickDetector
             fireclickdetector(clk)
             wait(35)
@@ -99,7 +99,7 @@ function joeS()
             print("Start")
             fat = player.Stats.Fatigue.Value
             Stam = game.Players[name].Stats.Stamina.Value
-            if fat <= 80 and Stam >= 1 then
+            if fat <= 70 and Stam >= 1 then
             local clk = game.Workspace.Game.WorkOut.Squats.BartSimp.ClickDetector
             fireclickdetector(clk)
             wait(35)
@@ -111,6 +111,63 @@ function joeS()
 end
 end)
 end
+
+
+function placeBallsD()
+    game.Workspace.Game.WorkOut.SitUp.Part.Name = ('BartSimp')
+    for i,v in pairs(game.Workspace.Game.WorkOut.SitUp:GetDescendants()) do -- grabs everything from workspace
+        if v.Name == ('BartSimp') then
+            local BillboardGui = Instance.new('BillboardGui') -- Makes Billboardgui
+            local TextLabel = Instance.new('TextLabel') -- makes text label
+           
+            BillboardGui.Parent = v -- what the billboardgui goes into
+            BillboardGui.AlwaysOnTop = true -- if its on top or not
+          BillboardGui.Size = UDim2.new(0, 50, 0, 50) -- size of it
+          BillboardGui.StudsOffset = Vector3.new(0,2,0)
+          BillboardGui.Name = ("xr3x")
+   
+           TextLabel.Parent = BillboardGui -- putting textlabel into billboardgui
+           TextLabel.BackgroundColor3 = Color3.new(0.972549, 0, 0) -- color
+           TextLabel.BackgroundTransparency = 1 -- transparency
+           TextLabel.Size = UDim2.new(1, 0, 1, 0) -- size
+            TextLabel.Text = ('Stand Here!!!!') -- what the label says
+            TextLabel.TextColor3 = Color3.new(0.517647, 0, 1) -- color
+            TextLabel.TextScaled = true -- if the text is scaled or not
+        end
+        end
+end
+
+function UnNameD()
+  for i,v in pairs(game.Workspace.Game.WorkOut.SitUp:GetDescendants()) do
+        if v.Name == ('xr3x') then
+            v:Destroy()
+    game.Workspace.Game.WorkOut.SitUp.BartSimp.Name = ('Part')
+    end
+end
+end
+
+function joeD()
+    spawn(function()
+        while BallD == true do
+            wait()
+            print("Start")
+            fat = player.Stats.Fatigue.Value
+            Stam = game.Players[name].Stats.Stamina.Value
+            if fat <= 70 and Stam >= 1 then
+            local clk = game.Workspace.Game.WorkOut.SitUp.BartSimp.ClickDetector
+            fireclickdetector(clk)
+            wait(35)
+            else
+                print("false")
+                break
+                
+        end
+end
+end)
+end
+
+
+
 
 
 
@@ -218,6 +275,27 @@ A:Toggle("ViewAtmToggle",function(bool)
              joeS()
          end
     end)
+
+
+
+    D:DestroyGui()
+
+    D:Button("WhereToStand",function()
+        placeBallsD()
+    end)
+
+    D:Button("Refresh/UnName",function()
+        UnNameD()
+        
+    end)
+
+    D:Toggle("ToggleDefense",function(bool)
+         getgenv().BallD = bool
+         if bool then
+             joeD()
+         end
+    end)
+    
 
     -- b:Label("Pretty Useless NGL",{
     --     TextSize = 25; -- Self Explaining
